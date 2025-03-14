@@ -11,12 +11,12 @@ board = [
 ################## Gobal Variables ##################
 turn = 1
 player = 'X'
-winner = False
+winner = ''
 ############## Win Conidition Functions #############
 
 def checkHorizontal(_board):
   for row in _board: 
-      if row[0]==row[1]==row[2]:
+      if row[0] == row[1] == row[2]:
        return player
 
 def checkVerticle(_board, _move):
@@ -45,15 +45,8 @@ while not winner and turn < 10:
     for row in board:
       print(row)
 
-    # Check horizontal win
-    winner = checkHorizontal(board)
-    winner = checkVerticle(board, y)
-    winner = checkDiagonal(board)
-   
-    # Check vertical win
-
-
-    # Check diagonal win
+    if checkHorizontal(board) or checkVerticle(board, y) or checkDiagonal(board):
+      winner = player
 
     turn += 1
 
